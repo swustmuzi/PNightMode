@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.muzi.support.nightmode.BaseAppCompatActivity" >
+
+    <item
+        android:id="@+id/action_day"
+        tools:showAsAction="always"
+        android:title="白天"/>
+    <item
+        android:id="@+id/action_night"
+        tools:showAsAction="always"
+        android:title="夜间"/>
+    <item
+        android:id="@+id/action_auto"
+        tools:showAsAction="always"
+        android:title="自动"/>
+
+</menu>
