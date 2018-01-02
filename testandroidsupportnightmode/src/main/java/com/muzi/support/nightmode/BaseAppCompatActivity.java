@@ -40,7 +40,7 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         }
     }
 
-    public void toggleNightModeForAllActivities(int mode) {
+    public void toggleNightModeForAllActivities(@AppCompatDelegate.NightMode int mode) {
         List<BaseAppCompatActivity> list = NightModeActivityManager.getInstance().getActivityList();
         if (list != null && list.size() > 0) {
             for (BaseAppCompatActivity activity : list) {
@@ -49,12 +49,13 @@ public class BaseAppCompatActivity extends AppCompatActivity {
         }
     }
 
-    protected void toggleGlobalNightMode(int mode) {
+    protected void toggleGlobalNightMode(@AppCompatDelegate.NightMode int mode) {
+        SharedPrefUtil.getInstance().setNightMode(mode);
         AppCompatDelegate.setDefaultNightMode(mode);
         recreate();
     }
 
-    protected void toggleLocalNightMode(int mode) {
+    protected void toggleLocalNightMode(@AppCompatDelegate.NightMode int mode) {
         getDelegate().setLocalNightMode(mode);
         recreate();
     }

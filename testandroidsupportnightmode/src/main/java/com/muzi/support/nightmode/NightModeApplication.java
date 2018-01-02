@@ -2,7 +2,9 @@ package com.muzi.support.nightmode;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 
 /**
  * Created by linpu on 17-12-21.
@@ -16,7 +18,18 @@ public class NightModeApplication extends Application{
         init();
     }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        AppContextUtils.setAppContext(base);
+        AppContextUtils.setApplication(this);
+    }
+
     public void init(){
+
+        int nightMode = SharedPrefUtil.getInstance().getNightMode();
+        AppCompatDelegate.setDefaultNightMode(nightMode);
+
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
