@@ -28,7 +28,7 @@ public class SecondAppCompatActivity extends BaseAppCompatActivity implements Vi
                 ? AppCompatDelegate.MODE_NIGHT_NO : AppCompatDelegate.MODE_NIGHT_YES;
         switch (view.getId()) {
             case R.id.btn_toggle_global_night_mode:
-                toggleGlobalNightMode(mode);
+                toggleNightModeForAllActivities(mode);
                 break;
             case R.id.btn_toggle_local_night_mode:
                 toggleLocalNightMode(mode);
