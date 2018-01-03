@@ -12,6 +12,10 @@ import android.support.v7.app.AppCompatDelegate;
 
 public class NightModeApplication extends Application{
 
+    //static {
+    //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_ NIGHT_YES);
+    //}
+
     @Override
     public void onCreate() {
         super.onCreate();
