@@ -1,6 +1,6 @@
 .gradle/
 .idea/
-app.iml
+AndroidSupportNightMode.iml
 /build/*
 gradle/
 gradlew

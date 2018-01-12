@@ -1,6 +1,6 @@
 .gradle/
 .idea/
-testandroidsupportnightmode.iml
+ThemeNightMode.iml
 /build/*
 gradle/
 gradlew

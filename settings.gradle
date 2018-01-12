@@ -1,1 +1,1 @@
-include ':app', ':testandroidsupportnightmode'
+include ':ThemeNightMode', ':AndroidSupportNightMode'
