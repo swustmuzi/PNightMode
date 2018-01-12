@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DayNightTheme">
+        <attr name="theme_default" format="reference" />
+        <attr name="theme_night" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ThemeAll">
+        <attr name="dayNightStyle" format="reference" />
+    </declare-styleable>
+</resources>
