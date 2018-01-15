@@ -38,4 +38,27 @@
         <item name="theme_night">@style/text_color_theme_night</item>
     </style>
 
+    <style name="button_theme_day">
+        <item name="android:textColor">#ffffff</item>
+    </style>
+    <style name="button_theme_night">
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="button_theme">
+        <item name="theme_default">@style/button_theme_day</item>
+        <item name="theme_night">@style/button_theme_night</item>
+    </style>
+
+    <!--　夜间模式，图片蒙黑 -->
+    <style name="image_mask_theme_day">
+        <item name="mask">false</item>
+    </style>
+    <style name="image_mask_theme_night">
+        <item name="mask">true</item>
+    </style>
+    <style name="image_mask_theme">
+        <item name="theme_default">@style/image_mask_theme_day</item>
+        <item name="theme_night">@style/image_mask_theme_night</item>
+    </style>
+
 </resources>

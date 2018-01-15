@@ -38,7 +38,7 @@ public class DayNightTextView extends TextView implements DayNightThemeInterface
     private void init(Context context, AttributeSet attrs, int defStyle) {
         ThemeUtils.applyStyle_TextView(this, 0);
         int[] defaultAndCustomTheme = new int[] {0, 0};
-        if (ThemeUtils.getTheme_BrowserView(context, attrs, defStyle, defaultAndCustomTheme)) {
+        if (ThemeUtils.getTheme_DayNightView(context, attrs, defStyle, defaultAndCustomTheme)) {
             addTheme(THEME_DEFAULT, defaultAndCustomTheme[0]);
             addTheme(THEME_NIGHT, defaultAndCustomTheme[1]);
             applyTheme(CommonSettings.getCurrentTheme());

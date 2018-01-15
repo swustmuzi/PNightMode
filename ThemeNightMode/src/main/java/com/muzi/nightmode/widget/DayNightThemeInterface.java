@@ -6,9 +6,9 @@ package com.muzi.nightmode.widget;
 
 public interface DayNightThemeInterface {
 
-    public static final String THEME_NIGHT = "night"; //现用于夜间模式。
-    public static final String THEME_DEFAULT = "default"; //普通模式。
-    public void applyTheme(String whichTheme);
-    public void addTheme(String whichTheme, int styleId);
+    static final String THEME_NIGHT = "night"; //现用于夜间模式。
+    static final String THEME_DEFAULT = "default"; //普通模式。
+    void applyTheme(String whichTheme);
+    void addTheme(String whichTheme, int styleId);
 
 }

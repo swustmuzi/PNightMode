@@ -8,4 +8,8 @@
     <declare-styleable name="ThemeAll">
         <attr name="dayNightStyle" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="DayNightImageViewTheme">
+        <attr name="mask" format="boolean" />
+    </declare-styleable>
 </resources>

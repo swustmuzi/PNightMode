@@ -8,16 +8,17 @@
     app:dayNightStyle="@style/layout_theme"
     tools:context="com.muzi.nightmode.MainActivity">
 
-    <Button
+    <com.muzi.nightmode.widget.DayNightButton
         android:id="@+id/btn_mode_toggle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="switch"/>
+        android:text="switch"
+        app:dayNightStyle="@style/button_theme" />
 
     <com.muzi.nightmode.widget.DayNightTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
-        app:dayNightStyle="@style/text_color_theme"/>
+        app:dayNightStyle="@style/text_color_theme" />
 
 </com.muzi.nightmode.widget.DayNightLinearLayout>

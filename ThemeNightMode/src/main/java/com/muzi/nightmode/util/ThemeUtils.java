@@ -7,10 +7,12 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.muzi.nightmode.R;
 import com.muzi.nightmode.util.reflection.AndroidInternalR_R;
+import com.muzi.nightmode.widget.DayNightImageView;
 
 import java.lang.reflect.Field;
 
@@ -30,6 +32,8 @@ public class ThemeUtils {
     public static final int STYLEABLE_TextView_textColorHint = AndroidInternalR_R.styleable.TextView_textColorHint;
     public static final int STYLEABLE_TextView_textCursorDrawable = AndroidInternalR_R.styleable.TextView_textCursorDrawable;
     public static final int STYLEABLE_TextView_privateImeOptions = AndroidInternalR_R.styleable.TextView_privateImeOptions;
+    public static final int[] STYLEABLE_ARRAY_ImageView = AndroidInternalR_R.styleable.ImageView;
+    public static final int STYLEABLE_ImageView_src = AndroidInternalR_R.styleable.ImageView_src;
 
 
     /**
@@ -124,7 +128,7 @@ public class ThemeUtils {
     }
 
     /**
-     * 解析 xml 中的标签，将获得到的白天/夜间模式的主题 Id 赋值给 defaultAndCustomTheme 数组，数组[0] 对应
+     * 解析 xml 中的标签，将获得到的白天/夜间模式的主题 Id 赋值给 defaultAndNightTheme 数组，数组[0] 对应
      * 白天模式的 Id，数组[1] 对应夜间模式的 ID。
      * @param context
      * @param attrs
@@ -132,15 +136,15 @@ public class ThemeUtils {
      * @param defaultAndNightTheme
      * @return
      */
-    public static boolean getTheme_BrowserView(Context context, AttributeSet attrs,
-                                               int defStyle, int[] defaultAndNightTheme) {
+    public static boolean getTheme_DayNightView(Context context, AttributeSet attrs,
+                                                int defStyle, int[] defaultAndNightTheme) {
         /**
          *
          * 第一种情况：
          * 从这里开始到 a.recycle() 方法，适用于在 xml 中以下列方式声明的属性
          * -----------
-         * self:theme_default="@style/sampleStyleDay"
-         * self:theme_night="@style/sampleStyleNight"
+         * app:theme_default="@style/sampleStyleDay"
+         * app:theme_night="@style/sampleStyleNight"
          * -----------
          *
          */
@@ -158,7 +162,7 @@ public class ThemeUtils {
          *
          * -----------
          * <! -- 布局文件 xml 中声明 dayNightStyle 属性，它是一个 style，在 style.xml 中定义  -->
-         * self:dayNightStyle="@style/sampleStyle"
+         * app:dayNightStyle="@style/sampleStyle"
          *
          * <!- style.xml 中的声明 -->
          * <style name="sampleStyleDay">
@@ -198,6 +202,38 @@ public class ThemeUtils {
         defaultAndNightTheme[0] = theme_default;
         defaultAndNightTheme[1] = theme_night;
         return theme_default != 0 || theme_night != 0;
+    }
+
+    public static void applyStyle_ImageView(ImageView v, int styleId) {
+        TypedArray a = v.getContext().getTheme().obtainStyledAttributes(styleId,
+                STYLEABLE_ARRAY_ImageView);
+        int N = a.getIndexCount();
+        for (int i = 0; i < N; i++) {
+            int attr = a.getIndex(i);
+            if (attr == STYLEABLE_ImageView_src) {
+                Drawable dr = a.getDrawable(attr);
+                v.setImageDrawable(dr);
+            }
+        }
+        a.recycle();
+    }
+
+    public static void applyStyle_DayNightImageView(DayNightImageView v, AttributeSet set, int styleId) {
+        TypedArray a = v.getContext().getTheme().obtainStyledAttributes(set,
+                R.styleable.DayNightImageViewTheme, 0, styleId);
+        int N = a.getIndexCount();
+        for (int i = 0; i < N; i++) {
+            int attr = a.getIndex(i);
+            switch (attr) {
+                case R.styleable.DayNightImageViewTheme_mask:
+                    boolean mask = a.getBoolean(attr, false);
+                    v.setMaskEnable(mask);
+                    break;
+                default:
+                    break;
+            }
+        }
+        a.recycle();
     }
 
 }

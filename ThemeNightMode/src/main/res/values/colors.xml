@@ -6,4 +6,6 @@
 
     <color name="content_bg">#ffffff</color>
     <color name="content_bg_night">#201f26</color>
+
+    <color name="imageview_mask_default_night">#7f000000</color>
 </resources>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.muzi.nightmode.util.CommonSettings;
 import com.muzi.nightmode.widget.DayNightThemeInterface;
