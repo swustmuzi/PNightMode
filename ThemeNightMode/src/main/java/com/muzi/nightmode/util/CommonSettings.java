@@ -9,7 +9,11 @@ import com.muzi.nightmode.widget.DayNightThemeInterface;
 public class CommonSettings {
 
     public static boolean isNightMode() {
-        return false;
+        return SharedPrefUtil.getInstance().getNightMode();
+    }
+
+    public static void setNightMode(boolean isNightMode) {
+        SharedPrefUtil.getInstance().setNightMode(isNightMode);
     }
 
     public static String getCurrentTheme() {

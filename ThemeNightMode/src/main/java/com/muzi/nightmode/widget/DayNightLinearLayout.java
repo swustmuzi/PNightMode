@@ -3,7 +3,7 @@ package com.muzi.nightmode.widget;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import com.muzi.nightmode.R;
 import com.muzi.nightmode.util.CommonSettings;
@@ -12,31 +12,31 @@ import com.muzi.nightmode.util.ThemeUtils;
 import java.util.HashMap;
 
 /**
- * Created by linpu on 18-1-12.
+ * Created by linpu on 18-1-15.
  */
 
-public class DayNightTextView extends TextView implements DayNightThemeInterface{
+public class DayNightLinearLayout extends LinearLayout implements DayNightThemeInterface{
 
     private String mCurrentTheme;
     private HashMap<String, Integer> mThemeSet = new HashMap<String, Integer>(5);
 
-    public DayNightTextView(Context context) {
+    public DayNightLinearLayout(Context context) {
         super(context);
         init(context, null, 0);
     }
 
-    public DayNightTextView(Context context, @Nullable AttributeSet attrs) {
+    public DayNightLinearLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, R.attr.dayNightStyle);
     }
 
-    public DayNightTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public DayNightLinearLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
 
     private void init(Context context, AttributeSet attrs, int defStyle) {
-        ThemeUtils.applyStyle_TextView(this, 0);
+        ThemeUtils.applyStyle_View(this, 0);
         int[] defaultAndCustomTheme = new int[] {0, 0};
         if (ThemeUtils.getTheme_BrowserView(context, attrs, defStyle, defaultAndCustomTheme)) {
             addTheme(THEME_DEFAULT, defaultAndCustomTheme[0]);
@@ -70,7 +70,6 @@ public class DayNightTextView extends TextView implements DayNightThemeInterface
         }
         if (styleId != 0) {
             ThemeUtils.applyStyle_View(this, styleId);
-            ThemeUtils.applyStyle_TextView(this, styleId);
         }
     }
 

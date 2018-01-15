@@ -38,7 +38,7 @@ public class ThemeUtils {
      * 包括 attr/id/string/style/styleable，都可以通过反射来获取。
      *
      * @param v 需要应用属性的 View。
-     * @param styleId 主题的 styleId，对应 theme_default/theme_custom 的主题。
+     * @param styleId 主题的 styleId，对应 theme_default/theme_night 的主题。
      *
      */
     public static void applyStyle_View(View v, int styleId) {
