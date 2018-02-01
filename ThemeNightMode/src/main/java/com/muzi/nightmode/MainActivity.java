@@ -2,6 +2,7 @@ package com.muzi.nightmode;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatImageView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         mBtnToggleNightMode = (Button) findViewById(R.id.btn_mode_toggle);
+
         mBtnToggleNightMode.setOnClickListener(this);
     }
 

@@ -21,4 +21,11 @@
         android:text="Hello World!"
         app:dayNightStyle="@style/text_color_theme" />
 
+    <com.muzi.nightmode.widget.DayNightImageView
+        android:id="@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/pic_1"
+        app:dayNightStyle="@style/image_mask_theme" />
+
 </com.muzi.nightmode.widget.DayNightLinearLayout>
